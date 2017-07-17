@@ -10,8 +10,8 @@ export class DataService {
       console.log('Data service connected...');
     }
 
-    getBooksByCategory(){
-      return this.http.get('http://localhost:3000/book/category/Scientifique')
+    getBooksByCategory(category){
+      return this.http.get('http://localhost:3000/book/category/'+category)
         .map(res => res.json());
   }
 }

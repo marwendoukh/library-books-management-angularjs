@@ -1,3 +1,8 @@
 <p>
   book works!
 </p>
+<h1>Books</h1>
+<div *ngFor="let book of books">
+  <h4>{{book.name}}</h4>
+  <p>{{book.isbn}}</p>
+</div>
