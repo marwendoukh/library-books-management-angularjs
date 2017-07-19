@@ -1,0 +1,22 @@
+<div *ngIf=error>
+<h2>login error</h2>
+</div>
+
+
+
+<form #f="ngForm"
+        (ngSubmit)="login(f.value)"
+        class="ui form">
+
+    <div class="field">
+      <label >Username</label><br/>
+
+      <input type="text" placeholder="username"  name="username" ngModel><br/>
+
+      <label >Password</label><br/>
+      <input type="password" placeholder="password"  name="password" ngModel><br/>
+
+    </div>
+
+    <button  type="submit" class="ui button">Log in</button>
+  </form>

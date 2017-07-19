@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import {Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
@@ -10,8 +11,30 @@ export class DataService {
       console.log('Data service connected...');
     }
 
+    login(username,password){
+      var body = "username=" + username + "&password=" + password;
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return  this.http
+        .post('http://localhost:3000/login', body, { headers: headers })
+        .map(response => response.json());
+
+      }
+
+
+
+
+
+
+
+
+
     getBooksByCategory(category){
       return this.http.get('http://localhost:3000/book/category/'+category)
         .map(res => res.json());
   }
+
+
+
 }
