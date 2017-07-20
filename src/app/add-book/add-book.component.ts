@@ -39,15 +39,3 @@ export class AddBookComponent implements OnInit {
   }
 
 }
-
-
-
-interface Book{
-  name:string,
-  isbn:string,
-  category:string,
-  count:number,
-  createdAt:Date,
-  updatedAt:Date
-
-}

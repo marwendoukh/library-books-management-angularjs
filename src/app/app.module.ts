@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
   {path:'addbook', component:AddBookComponent},
+  {path:'follow-up', component:FollowUpComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
