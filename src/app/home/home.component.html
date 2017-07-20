@@ -1,3 +1,30 @@
-<p>
-  home works!
-</p>
+<form #f="ngForm"
+        (ngSubmit)="searchBook(f.value)"
+        class="ui form">
+
+    <div class="field">
+
+      <input type="text" placeholder="searchtext"  name="searchtext" ngModel><br/>
+
+
+    </div>
+
+    <button  type="submit" class="ui button">Search</button>
+  </form>
+
+
+
+<div *ngFor="let book of booksByName">
+  <h4>isbn {{book.isbn}}</h4>
+  <p>name {{book.name}}</p>
+
+  </div>
+
+<p>------------------------------- List by isbn--------</p>
+
+
+  <div *ngFor="let book of booksByISBN">
+    <h4>isbn {{book.isbn}}</h4>
+    <p>name {{book.name}}</p>
+
+    </div>
