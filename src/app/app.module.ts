@@ -16,11 +16,13 @@ import {
 } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { AddBookComponent } from './add-book/add-book.component';
 
 
 const appRoutes: Routes = [
   {path:'book', component:BookComponent},
   {path:'login', component:LoginComponent},
+  {path:'home', component:HomeComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     BookComponent,
     LoginComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
