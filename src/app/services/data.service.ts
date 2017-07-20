@@ -11,6 +11,8 @@ export class DataService {
       console.log('Data service connected...');
     }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     login(username,password){
       var body = "username=" + username + "&password=" + password;
       var headers = new Headers();
@@ -22,19 +24,28 @@ export class DataService {
 
       }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      addBook(name,isbn,category,count){
+        var body = "name=" + name + "&isbn=" + isbn+"&category="+category+"&count="+count;
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      return  this.http
+          .post('http://localhost:3000/book', body, { headers: headers })
+          .map(response => response.json());
+
+        }
 
 
 
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     getBooksByCategory(category){
       return this.http.get('http://localhost:3000/book/category/'+category)
         .map(res => res.json());
   }
-
 
 
 }

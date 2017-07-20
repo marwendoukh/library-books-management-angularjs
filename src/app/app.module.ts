@@ -17,12 +17,15 @@ import {
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { AddBookComponent } from './add-book/add-book.component';
+import { FollowUpComponent } from './follow-up/follow-up.component';
 
 
 const appRoutes: Routes = [
   {path:'book', component:BookComponent},
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
+  {path:'addbook', component:AddBookComponent},
+
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -33,7 +36,8 @@ const appRoutes: Routes = [
     LoginComponent,
     PageNotFoundComponent,
     HomeComponent,
-    AddBookComponent
+    AddBookComponent,
+    FollowUpComponent
   ],
   imports: [
     BrowserModule,
