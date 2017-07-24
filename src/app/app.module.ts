@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FollowUpComponent } from './follow-up/follow-up.component';
 import { SearchPersonComponent } from './search-person/search-person.component';
+import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'addbook', component:AddBookComponent},
   {path:'follow-up', component:FollowUpComponent},
+  {path:'searchperson/:isbn', component:SearchPersonComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     HomeComponent,
     AddBookComponent,
     FollowUpComponent,
-    SearchPersonComponent
+    SearchPersonComponent,
+    BorrowBookComponent
   ],
   imports: [
     BrowserModule,

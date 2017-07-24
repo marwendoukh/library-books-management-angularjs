@@ -1,3 +1,21 @@
-<p>
-  search-person works!
-</p>
+<form #f="ngForm"
+        (ngSubmit)="searchPerson(f.value)"
+        class="ui form">
+
+    <div class="field">
+
+      <input type="text" placeholder="searchtext"  name="searchtext" ngModel><br/>
+
+
+    </div>
+
+    <button  type="submit" class="ui button">Search</button>
+  </form>
+
+
+
+<div *ngFor="let person of personByName">
+  <h4>isbn {{person.id}}</h4>
+  <p>name {{person.name}}</p>
+  <a href="/book/{{person.username}}">Details</a>
+  </div>

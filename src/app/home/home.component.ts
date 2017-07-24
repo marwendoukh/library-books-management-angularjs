@@ -50,8 +50,5 @@ interface Book{
   name:string,
   isbn:string,
   category:string,
-  count:number,
-  createdAt:Date,
-  updatedAt:Date
-
+  count:number
 }
