@@ -1,3 +1,29 @@
-<p>
-  borrow-book works!
-</p>
+<div *ngIf=error>
+<h2>error</h2>
+</div>
+
+
+<h4>username {{person.username}}</h4>
+<p>name {{person.name}}</p>
+
+
+<h4>book isbn {{book.isbn}}</h4>
+<p>name {{book.name}}</p>
+
+
+
+<form #f="ngForm"
+        (ngSubmit)="borrowBook(f.value)"
+        class="ui form">
+
+    <div class="field">
+
+      <input type=date  name="finishDate" ngModel><br/>
+
+
+
+
+    </div>
+
+    <button  type="submit" class="ui button">Log in</button>
+  </form>

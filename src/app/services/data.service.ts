@@ -93,4 +93,37 @@ findBookByISBN(isbn)
 
   }
 
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  findPersonByUsername(username)
+  {
+    return  this.http
+        .get('http://localhost:3000/person/username/'+username)
+        .map(response => response.json());
+
+  }
+
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  borrowBook(isbn,username,finishDate)
+  {
+    var body = "isbn=" + isbn + "&username=" + username+"&finishDate="+finishDate;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+  return  this.http
+      .post('http://localhost:3000/borrow', body, { headers: headers })
+      .map(response => response.json());
+
+    }
+
+  
+
+
+
 }

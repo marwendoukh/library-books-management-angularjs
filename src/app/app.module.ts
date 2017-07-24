@@ -29,6 +29,7 @@ const appRoutes: Routes = [
   {path:'addbook', component:AddBookComponent},
   {path:'follow-up', component:FollowUpComponent},
   {path:'searchperson/:isbn', component:SearchPersonComponent},
+  {path:'borrowbook/:isbn/:username', component:BorrowBookComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
