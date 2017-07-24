@@ -82,4 +82,15 @@ findBookByISBN(isbn)
   }
 
 
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  findPersonByName(name)
+  {
+    return  this.http
+        .get('http://localhost:3000/person/namelike/'+name)
+        .map(response => response.json());
+
+  }
+
 }

@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FollowUpComponent } from './follow-up/follow-up.component';
+import { SearchPersonComponent } from './search-person/search-person.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     HomeComponent,
     AddBookComponent,
-    FollowUpComponent
+    FollowUpComponent,
+    SearchPersonComponent
   ],
   imports: [
     BrowserModule,
