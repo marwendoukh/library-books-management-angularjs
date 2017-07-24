@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+ 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -9,17 +9,25 @@ import { DataService } from '../services/data.service';
 })
 export class BookComponent implements OnInit {
   books:Book[];
+    param: string;
 
 
+  constructor(private dataService:DataService,private router: Router,private route: ActivatedRoute) {
 
-  constructor(private dataService:DataService) { }
+  }
 
   ngOnInit() {
-    this.dataService.getBooksByCategory('Scientifique').subscribe((books) => {
+
+     this.dataService.findBookByISBN(this.route.snapshot.paramMap.get('isbn')).subscribe((books) => {
       this.books = books;
       console.log(books);
 });
+
+
+
   }
+
+
 
 }
 

@@ -17,7 +17,7 @@
 <div *ngFor="let book of booksByName">
   <h4>isbn {{book.isbn}}</h4>
   <p>name {{book.name}}</p>
-
+  <a href="/book/{{book.isbn}}">Details</a>
   </div>
 
 <p>------------------------------- List by isbn--------</p>
@@ -26,5 +26,6 @@
   <div *ngFor="let book of booksByISBN">
     <h4>isbn {{book.isbn}}</h4>
     <p>name {{book.name}}</p>
+    <a href="/book/{{book.isbn}}">Details</a>
 
     </div>

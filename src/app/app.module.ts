@@ -21,7 +21,7 @@ import { FollowUpComponent } from './follow-up/follow-up.component';
 
 
 const appRoutes: Routes = [
-  {path:'book', component:BookComponent},
+  {path:'book/:isbn', component:BookComponent},
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
   {path:'addbook', component:AddBookComponent},
