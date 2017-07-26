@@ -2,21 +2,25 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import {Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AuthHttp } from 'angular2-jwt';
 
 
 @Injectable()
 export class DataService {
 
-  constructor(public http:Http) {
+  constructor(public http:Http,public authHttp: AuthHttp) {
       console.log('Data service connected...');
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     login(username,password){
-      var body = "username=" + username + "&password=" + password;
+
+    var body = "username=" + username + "&password=" + password;
+
       var headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+ headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
 
     return  this.http
         .post('http://localhost:3000/login', body, { headers: headers })
@@ -66,9 +70,11 @@ findBookByName(name)
 
 findBookByISBN(isbn)
 {
+
   return  this.http
       .get('http://localhost:3000/book/isbn/'+isbn)
       .map(response => response.json());
+
 
 }
 
@@ -122,7 +128,7 @@ findBookByISBN(isbn)
 
     }
 
-  
+
 
 
 

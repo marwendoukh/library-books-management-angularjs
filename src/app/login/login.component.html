@@ -3,6 +3,9 @@
 </div>
 
 
+<button id="login" *ngIf="!loggedIn()">Log In</button>
+<button id="logout" *ngIf="loggedIn()">Log Out</button>
+
 
 <form #f="ngForm"
         (ngSubmit)="login(f.value)"
