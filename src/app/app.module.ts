@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+
 
 import { AppComponent } from './app.component';
 
@@ -53,7 +55,7 @@ const appRoutes: Routes = [
     FormsModule,         // <-- add this
     ReactiveFormsModule  // <-- and this
   ],
-  providers: [DataService],
+  providers: [DataService,AUTH_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
