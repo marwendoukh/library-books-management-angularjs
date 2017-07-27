@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import { Book }    from '../Models/Book';
 
 
 @Component({
@@ -43,12 +44,4 @@ export class HomeComponent implements OnInit {
     }
 
 
-}
-
-
-interface Book{
-  name:string,
-  isbn:string,
-  category:string,
-  count:number
 }

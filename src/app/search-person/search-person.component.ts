@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Person }    from '../Models/Person';
 
 
 @Component({
@@ -31,13 +32,5 @@ export class SearchPersonComponent implements OnInit {
 
 
 }
-
-}
-
-interface Person{
-  id:number,
-  name:string,
-  username:string,
-  type:string
 
 }

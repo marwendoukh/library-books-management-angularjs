@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Book }    from '../Models/Book';
+import { Person }    from '../Models/Person';
 
 
 
@@ -65,25 +67,5 @@ console.log(result)
 
 
 
-
-}
-
-
-
-interface Book{
-  name:string,
-  isbn:string,
-  category:string,
-  count:number
-
-}
-
-
-
-interface Person{
-  id:number,
-  name:string,
-  username:string,
-  type:string
 
 }

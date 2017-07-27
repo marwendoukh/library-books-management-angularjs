@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
- 
+import { Book }    from '../Models/Book';
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -28,18 +29,5 @@ export class BookComponent implements OnInit {
   }
 
 
-
-}
-
-
-
-
-interface Book{
-  name:string,
-  isbn:string,
-  category:string,
-  count:number,
-  createdAt:Date,
-  updatedAt:Date
 
 }

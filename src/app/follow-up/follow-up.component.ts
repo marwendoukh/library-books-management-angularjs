@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import { FollowUp }    from '../Models/FollowUp';
 
 
 @Component({
@@ -30,14 +31,4 @@ export class FollowUpComponent implements OnInit {
 
 
 
-}
-
-
-
-interface FollowUp{
-  status:string,
-  startDate:Date,
-  finishDate:Date,
-  BookIsbn:string,
-  PersonnId:string
 }
