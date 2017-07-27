@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http,XHRBackend } from '@angular/http';
 import {Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AuthHttp } from 'angular2-jwt';
@@ -16,11 +16,11 @@ export class DataService {
 
     login(username,password){
 
-    var body = "username=" + username + "&password=" + password;
+     var body = "username=" + username + "&password=" + password;
 
       var headers = new Headers();
- headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    //  headers.append('Authorizationn', localStorage.getItem('token'));
 
     return  this.http
         .post('http://localhost:3000/login', body, { headers: headers })
@@ -34,7 +34,7 @@ export class DataService {
         var body = "name=" + name + "&isbn=" + isbn+"&category="+category+"&count="+count;
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
+ 
       return  this.http
           .post('http://localhost:3000/book', body, { headers: headers })
           .map(response => response.json());
@@ -46,6 +46,9 @@ export class DataService {
 
 findAllFollowUp()
 {
+
+
+
   return  this.http
       .get('http://localhost:3000/follow-up')
       .map(response => response.json());
@@ -58,8 +61,12 @@ findAllFollowUp()
 
 findBookByName(name)
 {
+
+
+
+
   return  this.http
-      .get('http://localhost:3000/book/namelike/'+name)
+      .get('http://localhost:3000/book/namelike/'+name )
       .map(response => response.json());
 
 }
@@ -70,6 +77,8 @@ findBookByName(name)
 
 findBookByISBN(isbn)
 {
+
+
 
   return  this.http
       .get('http://localhost:3000/book/isbn/'+isbn)
@@ -83,7 +92,10 @@ findBookByISBN(isbn)
 
 
     getBooksByCategory(category){
-      return this.http.get('http://localhost:3000/book/category/'+category)
+
+
+
+      return this.http.get('http://localhost:3000/book/category/'+category )
         .map(res => res.json());
   }
 
@@ -93,8 +105,12 @@ findBookByISBN(isbn)
 
   findPersonByName(name)
   {
+
+
+
+
     return  this.http
-        .get('http://localhost:3000/person/namelike/'+name)
+        .get('http://localhost:3000/person/namelike/'+name )
         .map(response => response.json());
 
   }
@@ -105,8 +121,10 @@ findBookByISBN(isbn)
 
   findPersonByUsername(username)
   {
+
+
     return  this.http
-        .get('http://localhost:3000/person/username/'+username)
+        .get('http://localhost:3000/person/username/'+username )
         .map(response => response.json());
 
   }

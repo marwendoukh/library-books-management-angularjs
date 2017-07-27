@@ -3,6 +3,7 @@ import { DataService } from '../services/data.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Book }    from '../Models/Book';
 import { Person }    from '../Models/Person';
+import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 
 
 
@@ -17,11 +18,31 @@ param: string;
 person:Person;
 book:Book;
 error=false
+jwtHelper: JwtHelper = new JwtHelper();
 
 
   constructor(private dataService:DataService,private router: Router,private route: ActivatedRoute) {}
 
   ngOnInit() {
+
+    /// check user connected
+
+try{
+   var token = localStorage.getItem('token');
+
+  if(this.jwtHelper.isTokenExpired(token))
+  {
+    this.router.navigate(['/login']);
+
+  }
+}
+catch(err)
+{
+  this.router.navigate(['/login']);
+
+}
+
+//////////////////////////////////////
 
     this.dataService.findPersonByUsername(this.route.snapshot.paramMap.get('username')).subscribe((result) => {
 

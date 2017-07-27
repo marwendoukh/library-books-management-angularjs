@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 import { Book }    from '../Models/Book';
+import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 
 
 @Component({
@@ -14,12 +15,33 @@ export class HomeComponent implements OnInit {
   notFound=false
   booksByName:Book[];
   booksByISBN:Book[];
+  jwtHelper: JwtHelper = new JwtHelper();
 
 
 
   constructor(private dataService:DataService,private router: Router) { }
 
   ngOnInit() {
+
+    /// check user connected
+
+  try{
+   var token = localStorage.getItem('token');
+
+  if(this.jwtHelper.isTokenExpired(token))
+  {
+    this.router.navigate(['/login']);
+
+  }
+  }
+  catch(err)
+  {
+  this.router.navigate(['/login']);
+
+  }
+
+
+  
   }
 
 

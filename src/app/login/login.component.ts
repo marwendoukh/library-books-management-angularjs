@@ -19,7 +19,6 @@ error=false
 jwtHelper: JwtHelper = new JwtHelper();
 
 
-
   constructor(private dataService:DataService,private router: Router) { }
 
   ngOnInit() {
@@ -44,7 +43,8 @@ loggedIn() {
 
 login(form: any): void {
 
-  this.dataService.login(form.username,form.password).subscribe((token) => {
+   this.dataService.login(form.username,form.password).subscribe((token) => {
+
 console.log("token "+token.token)
 localStorage.setItem('token',token.token);
 
@@ -56,7 +56,8 @@ localStorage.setItem('token',token.token);
 
 
 });
-}
+
+ }
 
 
 }
