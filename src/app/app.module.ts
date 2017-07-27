@@ -22,6 +22,7 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { FollowUpComponent } from './follow-up/follow-up.component';
 import { SearchPersonComponent } from './search-person/search-person.component';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const appRoutes: Routes = [
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path:'follow-up', component:FollowUpComponent},
   {path:'searchperson/:isbn', component:SearchPersonComponent},
   {path:'borrowbook/:isbn/:username', component:BorrowBookComponent},
+  {path:'signup', component:SignUpComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -46,14 +48,15 @@ const appRoutes: Routes = [
     AddBookComponent,
     FollowUpComponent,
     SearchPersonComponent,
-    BorrowBookComponent
+    BorrowBookComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule,         // <-- add this
-    ReactiveFormsModule  // <-- and this
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DataService,AUTH_PROVIDERS],
   bootstrap: [AppComponent]

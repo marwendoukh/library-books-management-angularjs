@@ -2,11 +2,7 @@
 <h2>login error</h2>
 </div>
 
-
-<button id="login" *ngIf="!loggedIn()">Log In</button>
-<button id="logout" *ngIf="loggedIn()">Log Out</button>
-
-
+ 
 <form #f="ngForm"
         (ngSubmit)="login(f.value)"
         class="ui form">

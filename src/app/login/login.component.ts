@@ -23,15 +23,22 @@ jwtHelper: JwtHelper = new JwtHelper();
 
   ngOnInit() {
 
+/// check user connected
 
-
+try{
 var token = localStorage.getItem('token');
 
-console.log(
-  this.jwtHelper.decodeToken(token),
-  this.jwtHelper.getTokenExpirationDate(token),
-  this.jwtHelper.isTokenExpired(token)
-);
+if(!this.jwtHelper.isTokenExpired(token))
+{
+this.router.navigate(['/home']);
+
+}
+}
+catch(err)
+{
+this.router.navigate(['/login']);
+
+}
 }
 
 
