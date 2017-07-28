@@ -4,14 +4,15 @@ import { Router } from '@angular/router';
 import { FollowUp }    from '../Models/FollowUp';
 import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 
+import * as jsPDF from 'jspdf'
+
 
 @Component({
   selector: 'app-follow-up',
   templateUrl: './follow-up.component.html',
   styleUrls: ['./follow-up.component.css'],
   providers: [DataService]
-
-})
+ })
 export class FollowUpComponent implements OnInit {
 
   allFollowups:FollowUp[];
@@ -57,7 +58,7 @@ export class FollowUpComponent implements OnInit {
 filterFollowUp(form: any): void {
 
   this.followupsToshow=[]
-  
+
 
 ////// search by bookName AND personName
 if(form.personName!="" && form.bookName!="")
@@ -111,7 +112,31 @@ console.log("found by personName "+person.name)
  }
 }
 
+exportPDF()
+{
 
+          var doc = new jsPDF();
+          var position:number=10;
+
+          for (var followup of this.followupsToshow)
+          {
+            position+=50;
+            doc.text(20, position, 'Book name');
+            doc.text(20, position+10, followup.name);
+            doc.text(20, position+20,'Delivered to');
+             for (var person of followup.Personns)
+            {
+              doc.text(20, position+30, person.name);
+
+            }
+
+            doc.text(20, position+40, '-----------------------------------------------');
+
+
+          }
+
+doc.output('dataurlnewwindow');     //opens the data uri in new window
+}
 
 
 }

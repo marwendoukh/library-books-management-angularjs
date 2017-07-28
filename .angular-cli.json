@@ -2,7 +2,9 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "name": "library-books-management-angularjs"
+
   },
+  "scripts": [ "../node_modules/jspdf/dist/jspdf.min.js" ],
   "apps": [
     {
       "root": "src",
