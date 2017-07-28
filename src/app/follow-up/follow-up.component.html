@@ -1,7 +1,22 @@
-<p>
-  follow-up works!
-</p>
-<div *ngFor="let followup of followups">
+<form #f="ngForm"
+        (ngSubmit)="filterFollowUp(f.value)"
+        class="ui form">
+
+    <div class="field">
+
+      <input type="text" placeholder="search Book"  name="bookName" ngModel>
+
+      <input type="text" placeholder="search Person"  name="personName" ngModel>
+
+
+    </div>
+
+    <button  type="submit" class="ui button">Search</button>
+  </form>
+
+
+
+<div *ngFor="let followup of followupsToshow">
   <h4>{{followup.isbn}}</h4>
   <p>name {{followup.name}}</p>
   <div *ngFor="let person of followup.Personns">

@@ -46,7 +46,7 @@ export class AddBookComponent implements OnInit {
 
   addBook(form: any): void {
 
-    this.dataService.addBook(form.name,form.isbn,form.category,form.count).subscribe((result) => {
+    this.dataService.addBook(form.bookName,form.bookIsbn,form.bookCategory,form.bookCount).subscribe((result) => {
 
       if(result.success)
         {

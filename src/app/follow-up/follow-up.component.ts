@@ -14,8 +14,9 @@ import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 })
 export class FollowUpComponent implements OnInit {
 
-  followups:FollowUp[];
+  allFollowups:FollowUp[];
   jwtHelper: JwtHelper = new JwtHelper();
+  followupsToshow:FollowUp[];
 
 
   constructor(private dataService:DataService,private router: Router) { }
@@ -44,13 +45,71 @@ export class FollowUpComponent implements OnInit {
 
     this.dataService.findAllFollowUp().subscribe((result) => {
 
-      this.followups=result
+      this.allFollowups=result
+      this.followupsToshow=result
 
   });
+}
+
+
+
+
+filterFollowUp(form: any): void {
+
+  this.followupsToshow=[]
+  
+
+////// search by bookName AND personName
+if(form.personName!="" && form.bookName!="")
+{
+
+  console.log("search by bookName AND personName ")
+
+
+  for (var followup of this.allFollowups) {
+   if(followup.name.indexOf(form.bookName)>=0)
+  {
+    for (var person of followup.Personns) {
+    if(form.personName!=undefined && person.name==form.personName)
+    {
+    this.followupsToshow.push(followup)
+    console.log("found by personName "+person.name)
+
+    }
+  }
+}
+}
+}
+
+else
+{
+
+  console.log("search by bookName OR personName ")
+
+////// search by bookName OR personName
+
+
+  for (var followup of this.allFollowups) {
+console.log("search bookname result "+followup.name.indexOf(form.bookName))
+if(form.bookName!=undefined && followup.name.indexOf(form.bookName)>=0)
+{
+  this.followupsToshow.push(followup)
+  console.log("found by BookName "+followup.name)
+}
+
+  for (var person of followup.Personns) {
+if(form.personName!=undefined && person.name==form.personName)
+{
+this.followupsToshow.push(followup)
+console.log("found by personName "+person.name)
+
+}
+
   }
 
-
-
+}
+ }
+}
 
 
 

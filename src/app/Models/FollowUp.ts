@@ -1,3 +1,5 @@
+import { Person }    from './Person';
+
 export class FollowUp {
 
    constructor(
@@ -5,7 +7,9 @@ export class FollowUp {
   public startDate:Date,
   public finishDate:Date,
   public BookIsbn:string,
-  public PersonnId:string
+  public name:string,
+
+  public Personns:Person[]
   ) {  }
 
 }
