@@ -8,7 +8,9 @@ import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 @Component({
   selector: 'app-follow-up',
   templateUrl: './follow-up.component.html',
-  styleUrls: ['./follow-up.component.css']
+  styleUrls: ['./follow-up.component.css'],
+  providers: [DataService]
+
 })
 export class FollowUpComponent implements OnInit {
 

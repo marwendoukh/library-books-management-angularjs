@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AUTH_PROVIDERS,AuthHttp ,AuthConfig} from 'angular2-jwt';
 
 
 import { AppComponent } from './app.component';
@@ -10,7 +10,7 @@ import { DataService } from './services/data.service';
 import { BookComponent } from './book/book.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule,Http ,RequestOptions} from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import {
   FormsModule,
@@ -38,6 +38,17 @@ const appRoutes: Routes = [
   { path: '**', component: PageNotFoundComponent }
 ];
 
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'token',
+          tokenGetter: (() => localStorage.getItem('token')),
+          globalHeaders: [{'Content-Type':'application/json'}],
+     }), http, options);
+}
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +69,14 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [DataService,AUTH_PROVIDERS],
+  providers: [
+    // ...
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

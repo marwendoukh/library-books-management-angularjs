@@ -7,7 +7,9 @@ import { Person }    from '../Models/Person';
 @Component({
   selector: 'app-search-person',
   templateUrl: './search-person.component.html',
-  styleUrls: ['./search-person.component.css']
+  styleUrls: ['./search-person.component.css'],
+  providers: [DataService]
+
 })
 export class SearchPersonComponent implements OnInit {
 

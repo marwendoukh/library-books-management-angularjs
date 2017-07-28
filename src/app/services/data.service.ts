@@ -12,6 +12,8 @@ export class DataService {
       console.log('Data service connected...');
     }
 
+    
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     login(username,password){
@@ -34,7 +36,7 @@ export class DataService {
         var body = "name=" + name + "&isbn=" + isbn+"&category="+category+"&count="+count;
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
- 
+
       return  this.http
           .post('http://localhost:3000/book', body, { headers: headers })
           .map(response => response.json());

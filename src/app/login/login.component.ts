@@ -8,7 +8,8 @@ import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+      providers: [DataService]
 })
 export class LoginComponent implements OnInit {
 
@@ -46,6 +47,12 @@ this.router.navigate(['/login']);
 loggedIn() {
   return tokenNotExpired();
 }
+
+
+ signup()
+ {
+    this.router.navigate(['/signup']);
+ }
 
 
 login(form: any): void {

@@ -10,7 +10,9 @@ import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 @Component({
   selector: 'app-borrow-book',
   templateUrl: './borrow-book.component.html',
-  styleUrls: ['./borrow-book.component.css']
+  styleUrls: ['./borrow-book.component.css'],
+  providers: [DataService]
+
 })
 export class BorrowBookComponent implements OnInit {
 

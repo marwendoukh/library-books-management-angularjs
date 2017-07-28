@@ -8,7 +8,9 @@ import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['./book.component.css'],
+  providers: [DataService]
+
 })
 export class BookComponent implements OnInit {
   books:Book[];
