@@ -12,7 +12,7 @@ export class DataService {
       console.log('Data service connected...');
     }
 
-    
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -131,6 +131,21 @@ findBookByISBN(isbn)
 
   }
 
+
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        signup(name,type,username,password){
+          var body = "name=" + name + "&username=" + username+"&type="+type+"&password="+password;
+          var headers = new Headers();
+          headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        return  this.http
+            .post('http://localhost:3000/person', body, { headers: headers })
+            .map(response => response.json());
+
+          }
 
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////

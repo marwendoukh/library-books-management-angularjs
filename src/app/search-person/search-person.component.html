@@ -17,5 +17,5 @@
 <div *ngFor="let person of personByName">
   <h4>isbn {{person.id}}</h4>
   <p>name {{person.name}}</p>
-  <a href="/book/{{person.username}}">Details</a>
+  <a href="/borrowbook/{{isbn}}/{{person.username}}">Borrow to this person</a>
   </div>

@@ -26,7 +26,7 @@ export class SearchPersonComponent implements OnInit {
 
   searchPerson(form: any): void {
 
-    this.dataService.findPersonByName(form.searchtext).subscribe((result) => {
+    this.dataService.findPersonByName(form.searchPerson).subscribe((result) => {
 
     this.personByName=result
 
