@@ -51,14 +51,14 @@ export class HomeComponent implements OnInit {
 
     searchBook(form: any): void {
 
-      this.dataService.findBookByName(form.searchtext).subscribe((result) => {
+      this.dataService.findBookByName(form.searchBook).subscribe((result) => {
 
       this.booksByName=result
 
     });
 
 
-    this.dataService.findBookByISBN(form.searchtext).subscribe((result) => {
+    this.dataService.findBookByISBN(form.searchBook).subscribe((result) => {
 
       this.booksByISBN=result
 

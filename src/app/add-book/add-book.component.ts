@@ -7,7 +7,9 @@ import { tokenNotExpired,JwtHelper } from 'angular2-jwt';
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
-  styleUrls: ['./add-book.component.css']
+  styleUrls: ['./add-book.component.css'],
+  providers: [DataService]
+
 })
 export class AddBookComponent implements OnInit {
 
