@@ -1,3 +1,6 @@
+<div *ngIf=loading>
+<h2>Loading ....</h2>
+</div>
 
 <form #f="ngForm"
         (ngSubmit)="filterFollowUp(f.value)"
@@ -16,8 +19,11 @@
   </form>
 
 <br/><br/>
- <button (click)="exportPDF()">export PDF </button>
+ <button (click)="exportPDF(1)">export PDF </button>
 
+
+ <br/><br/>
+  <button (click)="email()">email</button>
 
 
 <p>------------------------------------------------</p>

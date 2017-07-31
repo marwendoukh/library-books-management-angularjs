@@ -164,6 +164,20 @@ findBookByISBN(isbn)
     }
 
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    email(receiver,subject,emailContent,file)
+    {
+      var body = "receiver=" + receiver + "&subject=" + subject+"&emailContent="+emailContent+"&file="+file;
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return  this.http
+        .post('http://localhost:3000/email', body, { headers: headers })
+        .map(response => response.json());
+
+      }
 
 
 

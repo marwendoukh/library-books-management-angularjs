@@ -18,7 +18,8 @@ export class FollowUpComponent implements OnInit {
   allFollowups:FollowUp[];
   jwtHelper: JwtHelper = new JwtHelper();
   followupsToshow:FollowUp[];
-
+  doc = new jsPDF();
+  loading:Boolean;
 
   constructor(private dataService:DataService,private router: Router) { }
 
@@ -112,7 +113,7 @@ console.log("found by personName "+person.name)
  }
 }
 
-exportPDF()
+exportPDF(open)
 {
 
           var doc = new jsPDF();
@@ -134,9 +135,35 @@ exportPDF()
 
 
           }
+this.doc=doc
 
+
+if(open)
 doc.output('dataurlnewwindow');     //opens the data uri in new window
 }
+
+
+
+
+
+email()
+{
+  this.loading=true 
+
+  this.exportPDF(false)
+
+
+var  token = this.jwtHelper.decodeToken(localStorage.getItem('token'))
+
+ this.dataService.email(token.email,"subj","hello",''+this.doc.output()).subscribe((result) => {
+
+ this.loading=false
+
+ });
+
+
+}
+
 
 
 }
