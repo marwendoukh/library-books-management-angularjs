@@ -136,8 +136,8 @@ findBookByISBN(isbn)
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        signup(name,type,username,password){
-          var body = "name=" + name + "&username=" + username+"&type="+type+"&password="+password;
+        signup(name,type,username,password,email){
+          var body = "name=" + name + "&username=" + username+"&type="+type+"&password="+password+"&email="+email;
           var headers = new Headers();
           headers.append('Content-Type', 'application/x-www-form-urlencoded');
 

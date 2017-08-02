@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
 
     signup(form: any): void {
 
-      this.dataService.signup(form.personName,form.personType,form.username,form.password).subscribe((result) => {
+      this.dataService.signup(form.personName,form.personType,form.username,form.password,form.email).subscribe((result) => {
 
         if(result.success)
           {
