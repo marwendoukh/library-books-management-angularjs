@@ -22,24 +22,6 @@ export class SignUpComponent implements OnInit {
 
     ngOnInit() {
 
-      /// check user connected
-
-    try{
-     var token = localStorage.getItem('token');
-
-    if(this.jwtHelper.isTokenExpired(token))
-    {
-      this.router.navigate(['/login']);
-
-    }
-    }
-    catch(err)
-    {
-    this.router.navigate(['/login']);
-
-    }
-
-
     }
 
 
