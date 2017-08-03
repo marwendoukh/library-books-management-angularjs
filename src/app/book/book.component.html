@@ -3,8 +3,8 @@
 </p>
 <h1>Books</h1>
 <div *ngFor="let book of books">
-  <h4>{{book.name}}</h4>
-  <p>{{book.isbn}}</p>
+  <h4>Book name : {{book.name}}</h4>
+  <p>Book ISBN : {{book.isbn}}</p>
   <a href="/searchperson/{{book.isbn}}">Borrow</a>
 
 </div>

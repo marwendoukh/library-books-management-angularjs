@@ -29,13 +29,13 @@
 <p>------------------------------------------------</p>
 
 <div *ngFor="let followup of followupsToshow">
-  <h4>{{followup.isbn}}</h4>
-  <p>name {{followup.name}}</p>
+  <h4>Book ISBN {{followup.isbn}}</h4>
+  <p>Book name {{followup.name}}</p>
   <div *ngFor="let person of followup.Personns">
-    <h4>{{person.username}}</h4>
+    <h4>Person name {{person.username}}</h4>
 
-    <p>{{person.type}}</p>
-    <p>{{person.PersonBook.finishDate}}</p>
+    <p>Is a {{person.type}}</p>
+    <p>Borrowed until : {{person.PersonBook.finishDate}}</p>
   </div>
 <p>------------------------------------------------</p>
 </div>
