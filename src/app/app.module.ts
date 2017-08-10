@@ -29,6 +29,7 @@ const appRoutes: Routes = [
   {path:'book/:isbn', component:BookComponent},
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
+  {path:'', component:LoginComponent},
   {path:'addbook', component:AddBookComponent},
   {path:'follow-up', component:FollowUpComponent},
   {path:'searchperson/:isbn', component:SearchPersonComponent},
