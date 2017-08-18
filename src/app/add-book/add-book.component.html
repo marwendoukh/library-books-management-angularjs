@@ -4,7 +4,6 @@
 
 
 
-
 <form #f="ngForm"
         (ngSubmit)="addBook(f.value)"
         class="ui form">
@@ -13,7 +12,27 @@
 
       <input type="text" placeholder="name"  name="bookName" ngModel><br/>
 
-       <input type="text" placeholder="isbn"  name="bookIsbn" ngModel><br/>
+      <input type="text" placeholder="author"  name="author" ngModel><br/>
+
+      <input type="text" placeholder="printer"  name="printer" ngModel><br/>
+
+      <input type="text" placeholder="publicationPlace"  name="publicationPlace" ngModel><br/>
+
+      <input type="date" placeholder="publicationDate"  name="publicationDate" ngModel><br/>
+
+      <input type="number" placeholder="pagesNumber"  name="pagesNumber" ngModel><br/>
+
+      <input type="text" placeholder="dimension"  name="dimension" ngModel><br/>
+
+      <input type="text" placeholder="theme"  name="theme" ngModel><br/>
+
+      <input type="text" placeholder="languages"  name="languages" ngModel><br/>
+
+      <input type="text" placeholder="description"  name="description" ngModel><br/>
+
+      <input type="text" placeholder="isbn"  name="isbn" ngModel><br/>
+
+      <input type="text" placeholder="placeInTheLibrary"  name="placeInTheLibrary" ngModel><br/>
 
        <input type="text" placeholder="category"  name="bookCategory" ngModel><br/>
 
@@ -22,5 +41,5 @@
 
     </div>
 
-    <button  type="submit" class="ui button">Log in</button>
+    <button  type="submit" class="ui button">Add book</button>
   </form>
