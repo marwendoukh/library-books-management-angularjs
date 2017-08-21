@@ -8,7 +8,7 @@ export class Book {
   public  publicationDate:Date,
   public  pagesNumber:number,
   public  dimension:string,
-  public  theme:string,
+  public  keywords:string,
   public  languages:string,
   public  description:string,
   public  isbn:string,

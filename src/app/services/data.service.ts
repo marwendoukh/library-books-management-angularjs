@@ -32,8 +32,8 @@ export class DataService {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      addBook(name,author,printer,publicationPlace,publicationDate,pagesNumber,dimension,theme,languages,description,placeInTheLibrary,isbn,category,count){
-        var body = "name=" + name+"&author="+author+"&printer="+printer+"&publicationPlace="+publicationPlace+"&publicationDate="+publicationDate+"&pagesNumber="+pagesNumber+"&dimension="+dimension+"&theme="+theme+"&languages="+languages+"&description="+description+"&placeInTheLibrary="+placeInTheLibrary + "&isbn=" + isbn+"&category="+category+"&count="+count;
+      addBook(name,author,printer,publicationPlace,publicationDate,pagesNumber,dimension,keywords,languages,description,placeInTheLibrary,isbn,category,count){
+        var body = "name=" + name+"&author="+author+"&printer="+printer+"&publicationPlace="+publicationPlace+"&publicationDate="+publicationDate+"&pagesNumber="+pagesNumber+"&dimension="+dimension+"&keywords="+keywords+"&languages="+languages+"&description="+description+"&placeInTheLibrary="+placeInTheLibrary + "&isbn=" + isbn+"&category="+category+"&count="+count;
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -88,6 +88,23 @@ findBookByISBN(isbn)
 
 
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+findBookByKeyWords(keywords)
+{
+
+
+
+  return  this.http
+      .get('http://localhost:3000/book/keywords/'+keywords)
+      .map(response => response.json());
+
+
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

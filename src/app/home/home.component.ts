@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   notFound=false
   booksByName:Book[];
   booksByISBN:Book[];
+  booksByKeyWords:Book[];
+
   jwtHelper: JwtHelper = new JwtHelper();
 
 
@@ -51,18 +53,29 @@ export class HomeComponent implements OnInit {
 
     searchBook(form: any): void {
 
+      // search book by name
       this.dataService.findBookByName(form.searchBook).subscribe((result) => {
 
       this.booksByName=result
 
     });
 
-
+    // search book by isbn
     this.dataService.findBookByISBN(form.searchBook).subscribe((result) => {
 
       this.booksByISBN=result
 
   });
+
+
+  // search book by key words
+
+  this.dataService.findBookByKeyWords(form.searchBook).subscribe((result) => {
+
+    this.booksByKeyWords=result
+
+});
+
 
 
     }

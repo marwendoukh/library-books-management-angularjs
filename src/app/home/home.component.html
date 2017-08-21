@@ -31,3 +31,15 @@
     <a href="/book/{{book.isbn}}">Details</a>
 
     </div>
+
+
+    <p>------------------------------- List by keywords--------</p>
+
+    
+      <div *ngFor="let book of booksByKeyWords">
+        <h4>isbn {{book.isbn}}</h4>
+        <p>name {{book.name}}</p>
+        <a href="/searchperson/{{book.isbn}}">Borrow</a>
+        <a href="/book/{{book.isbn}}">Details</a>
+
+        </div>
