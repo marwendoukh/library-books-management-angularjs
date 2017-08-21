@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   booksByISBN:Book[];
   booksByKeyWords:Book[];
 
+// save the keywords for listing by 20 items
+  keywordsToSearch:string;
+  pageNumber:number=1;
+
   jwtHelper: JwtHelper = new JwtHelper();
 
 
@@ -53,6 +57,8 @@ export class HomeComponent implements OnInit {
 
     searchBook(form: any): void {
 
+      this.keywordsToSearch=form.searchBook
+
       // search book by name
       this.dataService.findBookByName(form.searchBook).subscribe((result) => {
 
@@ -70,7 +76,7 @@ export class HomeComponent implements OnInit {
 
   // search book by key words
 
-  this.dataService.findBookByKeyWords(form.searchBook).subscribe((result) => {
+  this.dataService.findBookByKeyWords(form.searchBook,1).subscribe((result) => {
 
     this.booksByKeyWords=result
 
@@ -79,6 +85,39 @@ export class HomeComponent implements OnInit {
 
 
     }
+
+
+
+
+
+
+
+    findBookByKeyWordsBack()
+    {
+
+      this.pageNumber--
+
+        this.dataService.findBookByKeyWords(this.keywordsToSearch,this.pageNumber).subscribe((result) => {
+
+          this.booksByKeyWords=result
+
+      });
+    }
+
+
+findBookByKeyWordsNext()
+{
+
+  this.pageNumber++
+
+    this.dataService.findBookByKeyWords(this.keywordsToSearch,this.pageNumber).subscribe((result) => {
+
+      this.booksByKeyWords=result
+
+  });
+}
+
+
 
 
 }

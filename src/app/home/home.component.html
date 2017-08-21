@@ -35,11 +35,20 @@
 
     <p>------------------------------- List by keywords--------</p>
 
-    
-      <div *ngFor="let book of booksByKeyWords">
+
+      <div *ngFor="let book of booksByKeyWords.rows">
         <h4>isbn {{book.isbn}}</h4>
         <p>name {{book.name}}</p>
         <a href="/searchperson/{{book.isbn}}">Borrow</a>
         <a href="/book/{{book.isbn}}">Details</a>
+        </div>
 
+
+
+        <div *ngIf="pageNumber > 1" >
+          <button (click)="findBookByKeyWordsBack()">Back </button>
+        </div>
+
+        <div *ngIf="pageNumber*2 < booksByKeyWords.count" >
+          <button (click)="findBookByKeyWordsNext()">Next </button>
         </div>

@@ -93,13 +93,13 @@ findBookByISBN(isbn)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-findBookByKeyWords(keywords)
+findBookByKeyWords(keywords,page)
 {
 
 
 
   return  this.http
-      .get('http://localhost:3000/book/keywords/'+keywords)
+      .get('http://localhost:3000/book/keywords/'+keywords+'/'+page)
       .map(response => response.json());
 
 
