@@ -23,6 +23,7 @@ import { FollowUpComponent } from './follow-up/follow-up.component';
 import { SearchPersonComponent } from './search-person/search-person.component';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ValidateRegistrationComponent } from './validate-registration/validate-registration.component';
 
 
 const appRoutes: Routes = [
@@ -61,7 +62,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FollowUpComponent,
     SearchPersonComponent,
     BorrowBookComponent,
-    SignUpComponent
+    SignUpComponent,
+    ValidateRegistrationComponent
   ],
   imports: [
     BrowserModule,
