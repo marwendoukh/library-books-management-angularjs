@@ -18,9 +18,7 @@ export class BookComponent implements OnInit {
     jwtHelper: JwtHelper = new JwtHelper();
 
 
-  constructor(private dataService:DataService,private router: Router,private route: ActivatedRoute) {
-
-  }
+  constructor(private dataService:DataService,private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
 

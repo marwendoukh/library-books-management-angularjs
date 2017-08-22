@@ -36,6 +36,8 @@ const appRoutes: Routes = [
   {path:'searchperson/:isbn', component:SearchPersonComponent},
   {path:'borrowbook/:isbn/:username', component:BorrowBookComponent},
   {path:'signup', component:SignUpComponent},
+  {path:'validateRegistration/:key', component:ValidateRegistrationComponent},
+
 
   { path: '**', component: PageNotFoundComponent }
 ];

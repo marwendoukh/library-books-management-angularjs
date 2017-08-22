@@ -30,6 +30,20 @@ export class DataService {
 
       }
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+          validateRegistration(key){
+
+
+          return  this.http
+              .get('http://localhost:3000/login/validation/'+key)
+              .map(response => response.json());
+
+            }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       addBook(name,author,printer,publicationPlace,publicationDate,pagesNumber,dimension,keywords,languages,description,placeInTheLibrary,isbn,category,count){

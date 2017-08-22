@@ -1,3 +1,8 @@
-<p>
-  validate-registration works!
-</p>
+<div *ngIf=success>
+<h2>Registration complete</h2>
+</div>
+
+
+<div *ngIf="success!=true">
+<h2>Registration error</h2>
+</div>
