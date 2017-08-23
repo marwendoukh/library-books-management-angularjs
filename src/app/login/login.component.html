@@ -3,6 +3,11 @@
 </div>
 
 
+<div *ngIf=isNotActivated>
+<h2>Please activate your account</h2>
+</div>
+
+
 <form #f="ngForm"
         (ngSubmit)="login(f.value)"
         class="ui form">

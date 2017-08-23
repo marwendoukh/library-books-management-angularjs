@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 loggedin : Boolean
 person : String
 error=false
+isNotActivated=false
 
 jwtHelper: JwtHelper = new JwtHelper();
 
@@ -59,6 +60,13 @@ login(form: any): void {
 
    this.dataService.login(form.username,form.password).subscribe((token) => {
 
+console.log(token)
+console.log(token.login)
+console.log(token.activated)
+
+// check if login is successfull
+if(token.login)
+{
 console.log("token "+token.token)
 localStorage.setItem('token',token.token);
 
@@ -66,7 +74,27 @@ localStorage.setItem('token',token.token);
       if(tokenNotExpired('token',token.token))
       this.router.navigate(['/home']);
       else
-       this.error=true
+       {
+         this.error=true
+         this.isNotActivated=false
+       }
+}
+else
+{
+  if(token.activated==undefined)
+    {
+      this.error=true;
+      this.isNotActivated=false
+    }
+  else
+    {
+    this.isNotActivated=true
+    this.error=false;
+
+    }
+
+}
+
 
 
 });
