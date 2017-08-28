@@ -90,12 +90,9 @@ else
     {
     this.isNotActivated=true
     this.error=false;
-
     }
 
 }
-
-
 
 });
 

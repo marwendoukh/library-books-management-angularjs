@@ -198,6 +198,22 @@ findBookByKeyWords(keywords,page)
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+    returnBook(isbn,id)
+    {
+      var body = "isbn=" + isbn + "&id=" + id;
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return  this.http
+        .post('http://localhost:3000/returnbook', body, { headers: headers })
+        .map(response => response.json());
+
+      }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     email(receiver,subject,emailContent,file)
     {
       var body = "receiver=" + receiver + "&subject=" + subject+"&emailContent="+emailContent+"&file="+file;

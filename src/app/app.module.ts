@@ -24,6 +24,7 @@ import { SearchPersonComponent } from './search-person/search-person.component';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ValidateRegistrationComponent } from './validate-registration/validate-registration.component';
+import { ReturnBookComponent } from './return-book/return-book.component';
 
 
 const appRoutes: Routes = [
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
   {path:'borrowbook/:isbn/:username', component:BorrowBookComponent},
   {path:'signup', component:SignUpComponent},
   {path:'validateRegistration/:key', component:ValidateRegistrationComponent},
+  {path:'returnbook/:isbn/:id', component:ReturnBookComponent},
 
 
   { path: '**', component: PageNotFoundComponent }
@@ -65,7 +67,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SearchPersonComponent,
     BorrowBookComponent,
     SignUpComponent,
-    ValidateRegistrationComponent
+    ValidateRegistrationComponent,
+    ReturnBookComponent
   ],
   imports: [
     BrowserModule,
